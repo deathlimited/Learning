@@ -1,0 +1,52 @@
+#CODEARENA CHALLENGE https://arena.topcoder.com/#/u/practiceCode/1282/1262/1333/2/1282
+
+public bool MoreThanOne(string str, char c)
+        {
+            return str.Count(x => x == c) > 1;
+        }
+
+        public int getValue(string key,string code)
+        {
+            char[] characters = key.ToCharArray();
+            char[] codearr = code.ToCharArray();
+            int[] charstonums = new int[characters.Length];
+            
+
+            if ((key.Length == 10) && (code.Length >= 1) && (code.Length <= 9)  && code.All(Char.IsUpper) && code.All(Char.IsLetter) )
+            {
+               for(int i = 0; i < characters.Length; i++)
+                {
+                    if(MoreThanOne(key, characters[i]))
+                    {
+                        Console.WriteLine("Duplicate characters detected");
+                        break;
+                    }
+                }
+
+
+               for(int i = 0; i < characters.Length; i++)
+                {  
+                    charstonums[i] = i + 1 ;
+                }               
+               
+                charstonums[characters.Length - 1] = 0;
+
+                for(int i = 0; i < codearr.Length ;i++)
+                {
+                    for(int j = 0; j < characters.Length; j++)
+                    {
+                        if(codearr[i].ToString().Contains(characters[j]))
+                        {
+                            Console.Write(charstonums[j]);
+                        }
+                    }
+                }
+
+            }
+
+            else
+            {
+                Console.WriteLine("Key is less than 10 or Code is less than 1 or more than 9 or Code doesn't contain uppercase letters.");
+            }
+            return -1;
+        }
