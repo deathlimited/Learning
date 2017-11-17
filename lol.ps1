@@ -1,2 +1,1 @@
-$strString = "Hello World"
-write-host $strString
+Write-Output "Hello World"
