@@ -1,4 +1,4 @@
-$url = "https://github.com/deathlimited/Learning/blob/master/lel.bat"
+$url = "https://raw.githubusercontent.com/deathlimited/Learning/master/lel.bat"
 $outpath = "$PSScriptRoot/lel.bat"
 Invoke-WebRequest -Uri = $url -OutFile $outpath
 
