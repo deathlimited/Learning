@@ -1,6 +1,5 @@
-$wc = New-Object System.Net.WebClient
-$url ="https://raw.githubusercontent.com/deathlimited/Learning/master/lel.bat, $PSScriptRoot/lel.bat"
-$outpath ="C:\lel.bat";
-$wc.DownloadFile($url, $outpath)
+$url = "https://raw.githubusercontent.com/deathlimited/Learning/master/lel.bat"
+$outpath = "$env:Temp/myexe.exe"
+Invoke-WebRequest -Uri = $url -OutFile $outpath
 $args = @("Comma","Separated","Arguments")
-Start-Process -Filepath "C:/lel.bat" -ArgumentList $args
+Start-Process -Filepath "$env:Temp/myexe.exe" -ArgumentList $args
